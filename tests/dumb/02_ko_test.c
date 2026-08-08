@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libunit.h                                          :+:      :+:    :+:   */
+/*   02_ko_test.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaaltint@student.42istanbul.com.tr         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/08 12:13:40 by mtaheri           #+#    #+#             */
-/*   Updated: 2026/08/08 14:48:01 by kaaltint         ###   ########.fr       */
+/*   Created: 2026/08/08 13:09:13 by kaaltint          #+#    #+#             */
+/*   Updated: 2026/08/08 14:45:37 by kaaltint         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBUNIT_H
-# define LIBUNIT_H
+#include "dumb_test.h"
 
-typedef struct s_unit_test
+int     ko_test(void)
 {
-	char *name;
-
-}	t_unit_test;
-
-void	load_test(t_unit_test **testlist, char *name, int *test_function);
-int		launch_tests(t_unit_test **testlist);
-
-#endif
+    if (dumb(2) == 0)
+        return (0);
+    else
+        return (-1);
+}

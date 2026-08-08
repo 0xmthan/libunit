@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libunit.h                                          :+:      :+:    :+:   */
+/*   dumb.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaaltint@student.42istanbul.com.tr         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/08 12:13:40 by mtaheri           #+#    #+#             */
-/*   Updated: 2026/08/08 14:48:01 by kaaltint         ###   ########.fr       */
+/*   Created: 2026/08/08 14:23:43 by kaaltint          #+#    #+#             */
+/*   Updated: 2026/08/08 14:45:02 by kaaltint         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBUNIT_H
-# define LIBUNIT_H
+#include "dumb_test.h"
 
-typedef struct s_unit_test
+int     dumb(int value)
 {
-	char *name;
-
-}	t_unit_test;
-
-void	load_test(t_unit_test **testlist, char *name, int *test_function);
-int		launch_tests(t_unit_test **testlist);
-
-#endif
+    int *ptr;
+    
+    ptr = NULL;
+    if (value == 1)
+        return(1);
+    else if (value == 2)
+        return(-1);
+    else if (value == 3)
+    {
+        *ptr = 42;  
+        return (0);
+    }
+    else if (value == 4)
+        ; // todo
+    return (value);
+}

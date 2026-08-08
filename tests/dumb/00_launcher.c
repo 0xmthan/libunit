@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libunit.h                                          :+:      :+:    :+:   */
+/*   00_launcher.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaaltint@student.42istanbul.com.tr         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/08 12:13:40 by mtaheri           #+#    #+#             */
-/*   Updated: 2026/08/08 14:48:01 by kaaltint         ###   ########.fr       */
+/*   Created: 2026/08/08 13:56:22 by kaaltint          #+#    #+#             */
+/*   Updated: 2026/08/08 14:47:51 by kaaltint         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBUNIT_H
-# define LIBUNIT_H
+#include "dumb_test.h"
+#include "libunit.h"
 
-typedef struct s_unit_test
+int dump_launcher(void)
 {
-	char *name;
-
-}	t_unit_test;
-
-void	load_test(t_unit_test **testlist, char *name, int *test_function);
-int		launch_tests(t_unit_test **testlist);
-
-#endif
+    t_unit_test     *testlist;
+    
+    testlist = NULL;
+    load_test(&testlist, "OK test", &ok_test);
+    load_test(&testlist, "KO test", &ko_test);
+    load_test(&testlist, "SEGV test", &segv_test);
+    return(launch_tests(&testlist));
+}
