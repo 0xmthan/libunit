@@ -1,5 +1,7 @@
 NAME		= libunit
 
+MAKEFLAGS	+= --no-print-directory
+
 CC			= cc
 CFLAGS		= -Wall -Wextra -Werror
 RM			= rm -f
@@ -15,24 +17,24 @@ OBJS		= $(SRCS:.c=.o)
 all: $(NAME)
 
 $(NAME): $(LIBFT) $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
 $(LIBFT):
-	$(MAKE) -C $(LIBFT_DIR)
+	@$(MAKE) -C $(LIBFT_DIR)
 
 %.o: %.c
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 test: all
 	./$(NAME)
 
 clean:
-	$(RM) $(OBJS)
-	$(MAKE) -C $(LIBFT_DIR) clean
+	@$(RM) $(OBJS)
+	@$(MAKE) -C $(LIBFT_DIR) clean
 
 fclean: clean
-	$(RM) $(NAME)
-	$(MAKE) -C $(LIBFT_DIR) fclean
+	@$(RM) $(NAME)
+	@$(MAKE) -C $(LIBFT_DIR) fclean
 
 re: fclean all
 
