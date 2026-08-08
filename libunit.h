@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libunit.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaaltint@student.42istanbul.com.tr         +#+  +:+       +#+        */
+/*   By: mtaheri@student.42istanbul.com.tr          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 12:13:40 by mtaheri           #+#    #+#             */
-/*   Updated: 2026/08/08 14:48:01 by kaaltint         ###   ########.fr       */
+/*   Updated: 2026/08/08 16:04:16 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,12 @@
 
 typedef struct s_unit_test
 {
-	char *name;
-
+	char				*name;
+	int					(*f)(void);
+	struct s_unit_test	*next;
 }	t_unit_test;
 
-void	load_test(t_unit_test **testlist, char *name, int *test_function);
-int		launch_tests(t_unit_test **testlist);
+int	load_test(t_unit_test **testlist, char *name, int (*f)(void));
+int	launch_tests(t_unit_test **testlist, char *fname);
 
 #endif

@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   02_ko_test.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaaltint@student.42istanbul.com.tr         +#+  +:+       +#+        */
+/*   By: mtaheri@student.42istanbul.com.tr          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 13:09:13 by kaaltint          #+#    #+#             */
-/*   Updated: 2026/08/08 14:45:37 by kaaltint         ###   ########.fr       */
+/*   Updated: 2026/08/08 16:17:37 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "dumb_test.h"
+#include "demo_test.h"
 
-int     ko_test(void)
+int	ko_test(void)
 {
-    if (dumb(2) == 0)
-        return (0);
-    else
-        return (-1);
+	if (demo(2) == 0)
+		return (0);
+	else
+		return (-1);
 }

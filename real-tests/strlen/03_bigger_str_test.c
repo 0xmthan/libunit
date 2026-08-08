@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   01_ok_test.c                                       :+:      :+:    :+:   */
+/*   03_bigger_str_test.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaaltint@student.42istanbul.com.tr         +#+  +:+       +#+        */
+/*   By: mtaheri@student.42istanbul.com.tr          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/08 13:08:48 by kaaltint          #+#    #+#             */
-/*   Updated: 2026/08/08 14:45:29 by kaaltint         ###   ########.fr       */
+/*   Created: 2026/08/08 15:18:45 by kaaltint          #+#    #+#             */
+/*   Updated: 2026/08/08 16:05:32 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "dumb_test.h"
+#include "strlen_test.h"
 
-int     ok_test(void)
+int	bigger_str_test(void)
 {
-    if (dumb(1) == 1)
-        return (0);
-    else
-        return (-1);
+	if (ft_strlen("hello world 42 İstanbul")
+		== strlen("hello world 42 İstanbul"))
+		return (0);
+	else
+		return (-1);
 }

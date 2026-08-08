@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   04_bus_test.c                                      :+:      :+:    :+:   */
+/*   03_segv_test.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaaltint@student.42istanbul.com.tr         +#+  +:+       +#+        */
+/*   By: mtaheri@student.42istanbul.com.tr          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/08 14:46:11 by kaaltint          #+#    #+#             */
-/*   Updated: 2026/08/08 14:46:29 by kaaltint         ###   ########.fr       */
+/*   Created: 2026/08/08 13:17:49 by kaaltint          #+#    #+#             */
+/*   Updated: 2026/08/08 16:08:04 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "dumb_test.h"
+#include "demo_test.h"
 
-int     bus_test(void)
+int	segv_test(void)
 {
-    int     *ptr;
-    
-    if (dumb(4) == 0)
-        return (0);
-    else
-        return (-1);
+	if (demo(3) == 0)
+		return (0);
+	else
+		return (-1);
 }

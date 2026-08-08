@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   02_null_test.c                                     :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaaltint@student.42istanbul.com.tr         +#+  +:+       +#+        */
+/*   By: mtaheri@student.42istanbul.com.tr          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/08 15:10:48 by kaaltint          #+#    #+#             */
-/*   Updated: 2026/08/08 15:36:21 by kaaltint         ###   ########.fr       */
+/*   Created: 2025/12/30 18:53:44 by mtaheri           #+#    #+#             */
+/*   Updated: 2026/08/08 16:02:23 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "strlen_test.h"
 
-int     null_test(void)
+size_t	ft_strlen(const char *s)
 {
-    if (ft_strlen(NULL) == 0)
-        return (0);
-    else
-        return (-1);
+	size_t	i;
+
+	i = 0;
+	while (*s++)
+		i++;
+	return (i);
 }

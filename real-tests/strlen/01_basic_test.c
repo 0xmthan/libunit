@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   04_emoji_test.c                                    :+:      :+:    :+:   */
+/*   01_basic_test.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaaltint@student.42istanbul.com.tr         +#+  +:+       +#+        */
+/*   By: mtaheri@student.42istanbul.com.tr          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/08 15:26:13 by kaaltint          #+#    #+#             */
-/*   Updated: 2026/08/08 15:28:46 by kaaltint         ###   ########.fr       */
+/*   Created: 2026/08/08 12:22:36 by mtaheri           #+#    #+#             */
+/*   Updated: 2026/08/08 16:04:56 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "strlen_test.h"
 
-int     emoji_test(void)
+int	basic_test(void)
 {
-    if (ft_strlen("🐻​") == strlen("🐻​"))
-        return (0);
-    else
-        return (-1);
+	if (ft_strlen("hi") == strlen("hi"))
+		return (0);
+	else
+		return (-1);
 }

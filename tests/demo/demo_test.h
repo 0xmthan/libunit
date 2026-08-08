@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   01_basic_test.c                                    :+:      :+:    :+:   */
+/*   demo_test.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaaltint@student.42istanbul.com.tr         +#+  +:+       +#+        */
+/*   By: mtaheri@student.42istanbul.com.tr          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/08 12:22:36 by mtaheri           #+#    #+#             */
-/*   Updated: 2026/08/08 15:14:51 by kaaltint         ###   ########.fr       */
+/*   Created: 2026/08/08 15:30:07 by kaaltint          #+#    #+#             */
+/*   Updated: 2026/08/08 16:07:19 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "strlen_test.h"
+#ifndef DEMO_TEST_H
+# define DEMO_TEST_H
 
-int		basic_test(void)
-{
-	if (ft_strlen("hi") == strlen("hi"))
-		return (0);
-	else
-		return (-1);
-}
+# include <stddef.h>
+
+int	demo(int value);
+int	ok_test(void);
+int	ko_test(void);
+int	segv_test(void);
+int	bus_test(void);
+
+#endif

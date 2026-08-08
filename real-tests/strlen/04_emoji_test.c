@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dumb_test.h                                        :+:      :+:    :+:   */
+/*   04_emoji_test.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaaltint@student.42istanbul.com.tr         +#+  +:+       +#+        */
+/*   By: mtaheri@student.42istanbul.com.tr          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/08 15:30:07 by kaaltint          #+#    #+#             */
-/*   Updated: 2026/08/08 15:30:09 by kaaltint         ###   ########.fr       */
+/*   Created: 2026/08/08 15:26:13 by kaaltint          #+#    #+#             */
+/*   Updated: 2026/08/08 16:04:33 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DUMB_TEST_H
-# define DUMB_TEST_H
+#include "strlen_test.h"
 
-#include <stddef.h>
-
-int     dumb(int value);
-int		ok_test(void);
-int     ko_test(void);
-int     segv_test(void);
-int     bus_test(void);
-
-#endif
+int	emoji_test(void)
+{
+	if (ft_strlen("🐻​") == strlen("🐻​"))
+		return (0);
+	else
+		return (-1);
+}

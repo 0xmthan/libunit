@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   03_segv_test.c                                     :+:      :+:    :+:   */
+/*   01_ok_test.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaaltint@student.42istanbul.com.tr         +#+  +:+       +#+        */
+/*   By: mtaheri@student.42istanbul.com.tr          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/08 13:17:49 by kaaltint          #+#    #+#             */
-/*   Updated: 2026/08/08 14:45:56 by kaaltint         ###   ########.fr       */
+/*   Created: 2026/08/08 13:08:48 by kaaltint          #+#    #+#             */
+/*   Updated: 2026/08/08 16:08:10 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "dumb_test.h"
+#include "demo_test.h"
 
-int     segv_test(void)
+int	ok_test(void)
 {
-    int     *ptr;
-    
-    if (dumb(3) == 0)
-        return (0);
-    else
-        return (-1);
+	if (demo(1) == 1)
+		return (0);
+	else
+		return (-1);
 }

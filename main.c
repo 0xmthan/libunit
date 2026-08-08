@@ -6,25 +6,21 @@
 /*   By: mtaheri@student.42istanbul.com.tr          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/07 21:59:06 by mtaheri           #+#    #+#             */
-/*   Updated: 2026/08/07 22:47:15 by mtaheri          ###   ########.fr       */
+/*   Updated: 2026/08/08 16:31:52 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
-#include <stdio.h>
+int	dump_launcher(void);
+int	strlen_launcher(void);
 
 int	main(void)
 {
-	pid_t	p;
+	int	ret;
 
-	p = fork();
-	if (p < 0)
-	{
-		perror("fork fail");
-		exit(1);
-	}
-	ft_putstr_fd("test fork\n", 1);
-	ft_putnbr_fd(getpid(), 1);
-	ft_putchar_fd('\n', 1);
+	ret = 0;
+	ret |= dump_launcher();
+	ret |= strlen_launcher();
+	if (ret != 0)
+		return (-1);
 	return (0);
 }
