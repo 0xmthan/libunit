@@ -6,7 +6,7 @@
 /*   By: kaaltint@student.42istanbul.com.tr         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 18:46:23 by kaaltint          #+#    #+#             */
-/*   Updated: 2026/08/08 21:43:55 by kaaltint         ###   ########.fr       */
+/*   Updated: 2026/08/08 21:59:05 by kaaltint         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define GNL_TEST_H
 
 # include "../../framework/libunit.h"
-# include "get_next_line.h"
+# include "gnl/get_next_line.h"
 # include <fcntl.h>
 # include <stdlib.h>
 # include <string.h>

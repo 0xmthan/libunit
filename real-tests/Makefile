@@ -1,5 +1,4 @@
 NAME		= test_real
-
 MAKEFLAGS	+= --no-print-directory
 
 CC			= cc
@@ -10,9 +9,14 @@ ROOT_DIR	= ..
 LIBUNIT		= $(ROOT_DIR)/libunit.a
 LIBFT		= $(ROOT_DIR)/libft/libft.a
 
-INCLUDES	= -I$(ROOT_DIR)/framework -I$(ROOT_DIR)/libft
+INCLUDES	= -I$(ROOT_DIR)/framework \
+			  -I$(ROOT_DIR)/libft \
+			  -Iget_next_line/gnl
 
-SRCS		= main.c $(wildcard */*.c)
+SRCS		= main.c \
+			  $(wildcard */*.c) \
+			  $(wildcard */*/*.c)
+
 OBJS		= $(SRCS:.c=.o)
 
 all: $(NAME)
