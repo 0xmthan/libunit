@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   01_basic_test.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaaltint@student.42istanbul.com.tr         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/08 16:58:44 by mtaheri           #+#    #+#             */
-/*   Updated: 2026/08/08 18:59:28 by kaaltint         ###   ########.fr       */
+/*   Created: 2026/08/08 18:45:02 by kaaltint          #+#    #+#             */
+/*   Updated: 2026/08/08 19:08:34 by kaaltint         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	gnl_launcher(void);
+#include "gnl_test.h"
+#include <stdio.h>
 
-int	main(void)
+int	basic_test(void)
 {
-	int	ret;
+	int		fd;
+	char	*line;
 
-	ret = 0;
-	ret |= gnl_launcher();
-	if (ret != 0)
+	fd = open("get_next_line/files/basic.txt", O_RDONLY);
+	if (fd < 0)
 		return (-1);
-	return (0);
+	line = get_next_line(fd);
+	if (line && strcmp(line, "hello\n") == 0)
+		return (free(line), close(fd), 0);
+	else
+		return (free(line), close(fd), -1);
 }

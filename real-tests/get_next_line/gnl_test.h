@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   gnl_test.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaaltint@student.42istanbul.com.tr         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/08 16:58:44 by mtaheri           #+#    #+#             */
-/*   Updated: 2026/08/08 18:59:28 by kaaltint         ###   ########.fr       */
+/*   Created: 2026/08/08 18:46:23 by kaaltint          #+#    #+#             */
+/*   Updated: 2026/08/08 18:46:24 by kaaltint         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef GNL_TEST_H
+# define GNL_TEST_H
+
+# include "../../framework/libunit.h"
+# include "get_next_line.h"
+# include <fcntl.h>
+# include <stdlib.h>
+# include <string.h>
+# include <unistd.h>
+
+int	basic_test(void);
 int	gnl_launcher(void);
 
-int	main(void)
-{
-	int	ret;
-
-	ret = 0;
-	ret |= gnl_launcher();
-	if (ret != 0)
-		return (-1);
-	return (0);
-}
+#endif
