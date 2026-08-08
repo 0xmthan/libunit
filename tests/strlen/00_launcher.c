@@ -3,22 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   00_launcher.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtaheri@student.42istanbul.com.tr          +#+  +:+       +#+        */
+/*   By: kaaltint@student.42istanbul.com.tr         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 12:13:21 by mtaheri           #+#    #+#             */
-/*   Updated: 2026/08/08 12:28:34 by mtaheri          ###   ########.fr       */
+/*   Updated: 2026/08/08 15:33:32 by kaaltint         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "101_basic_tests.h"
+#include "strlen_test.h"
 #include "libunit.h"
 
 int strlen_launcher(void)
 {
-    t_unit_test *testlist;
-    
-    load_test(&testlist, "Basic test", &basic_test);
-    //load_test(&testlist, "NULL test", &null_test);
-    //load_test(&testlist, "Bigger string test", &bigger_str_test); /* This test won't be loaded */
+    t_unit_test     *testlist;
+
+    testlist = NULL;
+    load_test(&testlist, "BASİC test", &basic_test);
+    load_test(&testlist, "NULL test", &null_test);
+    load_test(&testlist, "BİGGER STR test", &bigger_str_test);
+    load_test(&testlist, "EMOJİ test", &emoji_test);
     return(launch_tests(&testlist));
 }

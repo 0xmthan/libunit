@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   01_basic_test.c                                    :+:      :+:    :+:   */
+/*   02_null_test.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaaltint@student.42istanbul.com.tr         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/08 12:22:36 by mtaheri           #+#    #+#             */
-/*   Updated: 2026/08/08 15:14:51 by kaaltint         ###   ########.fr       */
+/*   Created: 2026/08/08 15:10:48 by kaaltint          #+#    #+#             */
+/*   Updated: 2026/08/08 15:36:21 by kaaltint         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "strlen_test.h"
 
-int		basic_test(void)
+int     null_test(void)
 {
-	if (ft_strlen("hi") == strlen("hi"))
-		return (0);
-	else
-		return (-1);
+    if (ft_strlen(NULL) == 0)
+        return (0);
+    else
+        return (-1);
 }
