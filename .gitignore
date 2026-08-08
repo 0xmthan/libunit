@@ -1,3 +1,7 @@
 libunit
+libunit.a
+test_demo
+test_real
 *.o
 libunit_tests
+test_libunit

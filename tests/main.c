@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   00_launcher.c                                      :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtaheri@student.42istanbul.com.tr          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/08 13:56:22 by kaaltint          #+#    #+#             */
-/*   Updated: 2026/08/08 16:33:34 by mtaheri          ###   ########.fr       */
+/*   Created: 2026/08/08 16:58:31 by mtaheri           #+#    #+#             */
+/*   Updated: 2026/08/08 18:51:18 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "demo_test.h"
-#include "../../framework/libunit.h"
+int	demo_launcher(void);
 
-int	demo_launcher(void)
+int	main(void)
 {
-	t_unit_test	*testlist;
+	int	ret;
 
-	testlist = NULL;
-	load_test(&testlist, "OK test", &ok_test);
-	load_test(&testlist, "KO test", &ko_test);
-	load_test(&testlist, "SEGV test", &segv_test);
-	load_test(&testlist, "BUS test", &bus_test);
-	return (launch_tests(&testlist, "demo"));
+	ret = 0;
+	ret |= demo_launcher();
+	if (ret != 0)
+		return (-1);
+	return (0);
 }
