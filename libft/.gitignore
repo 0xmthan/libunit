@@ -1,7 +1,0 @@
-*.o
-libft.a
-libftTester/
-.idea/
-.DS_Store
-.clangd
-test*

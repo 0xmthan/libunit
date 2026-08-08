@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "libunit.h"
-#include "../libft/libft.h"
+#include "ft_printf.h"
 #include <stdlib.h>
 #include <unistd.h>
 #include <signal.h>
@@ -66,11 +66,7 @@ static int	run_test(t_unit_test *test)
 
 static void	print_line(char *fname, char *tname, int status)
 {
-	ft_putstr_fd(fname, 1);
-	ft_putstr_fd(":", 1);
-	ft_putstr_fd(tname, 1);
-	ft_putstr_fd(":", 1);
-	ft_putendl_fd(status_str(status), 1);
+	ft_printf("%s:%s:%s\n", fname, tname, status_str(status));
 }
 
 static void	free_list(t_unit_test **testlist)
@@ -107,10 +103,7 @@ int	launch_tests(t_unit_test **testlist, char *fname)
 		total++;
 		cur = cur->next;
 	}
-	ft_putnbr_fd(passed, 1);
-	ft_putstr_fd("/", 1);
-	ft_putnbr_fd(total, 1);
-	ft_putendl_fd(" tests checked", 1);
+	ft_printf("%d/%d tests checked\n", passed, total);
 	free_list(testlist);
 	if (passed == total)
 		return (0);

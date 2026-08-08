@@ -7,25 +7,21 @@ CFLAGS		= -Wall -Wextra -Werror
 AR			= ar rcs
 RM			= rm -f
 
-LIBFT_DIR	= libft
-LIBFT		= $(LIBFT_DIR)/libft.a
-
 TESTS_DIR	= tests
 REAL_DIR	= real-tests
 
-INCLUDES	= -Iframework -I$(LIBFT_DIR)
+INCLUDES	= -Iframework
 
 SRCS		= framework/load_test.c \
-			  framework/launch_tests.c
+			  framework/launch_tests.c \
+			  framework/ft_printf.c \
+			  framework/ft_printf_put.c
 OBJS		= $(SRCS:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(LIBFT) $(OBJS)
+$(NAME): $(OBJS)
 	@$(AR) $(NAME) $(OBJS)
-
-$(LIBFT):
-	@$(MAKE) -C $(LIBFT_DIR)
 
 %.o: %.c
 	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
@@ -36,13 +32,11 @@ test: $(NAME)
 
 clean:
 	@$(RM) $(OBJS)
-	@$(MAKE) -C $(LIBFT_DIR) clean
 	@$(MAKE) -C $(TESTS_DIR) clean
 	@$(MAKE) -C $(REAL_DIR) clean
 
 fclean: clean
 	@$(RM) $(NAME)
-	@$(MAKE) -C $(LIBFT_DIR) fclean
 	@$(MAKE) -C $(TESTS_DIR) fclean
 	@$(MAKE) -C $(REAL_DIR) fclean
 

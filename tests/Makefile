@@ -8,23 +8,19 @@ RM			= rm -f
 
 ROOT_DIR	= ..
 LIBUNIT		= $(ROOT_DIR)/libunit.a
-LIBFT		= $(ROOT_DIR)/libft/libft.a
 
-INCLUDES	= -I$(ROOT_DIR)/framework -I$(ROOT_DIR)/libft
+INCLUDES	= -I$(ROOT_DIR)/framework
 
 SRCS		= main.c $(wildcard */*.c)
 OBJS		= $(SRCS:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(LIBUNIT) $(LIBFT) $(OBJS)
-	@$(CC) $(CFLAGS) $(OBJS) $(LIBUNIT) $(LIBFT) -o $(NAME)
+$(NAME): $(LIBUNIT) $(OBJS)
+	@$(CC) $(CFLAGS) $(OBJS) $(LIBUNIT) -o $(NAME)
 
 $(LIBUNIT):
 	@$(MAKE) -C $(ROOT_DIR)
-
-$(LIBFT):
-	@$(MAKE) -C $(ROOT_DIR)/libft
 
 %.o: %.c
 	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
