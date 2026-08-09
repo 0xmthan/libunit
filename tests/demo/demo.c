@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   demo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtaheri@student.42istanbul.com.tr          +#+  +:+       +#+        */
+/*   By: kaaltint@student.42istanbul.com.tr         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 14:23:43 by kaaltint          #+#    #+#             */
-/*   Updated: 2026/08/09 15:15:10 by mtaheri          ###   ########.fr       */
+/*   Updated: 2026/08/09 23:23:31 by kaaltint         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int	demo(int value)
 		fd = open("/tmp/.libunit_bus", O_RDWR | O_CREAT | O_TRUNC, 0600);
 		map = mmap(NULL, 4096, PROT_WRITE, MAP_SHARED, fd, 0);
 		unlink("/tmp/.libunit_bus");
+		close(fd);
 		*map = 'x';
 		return (0);
 	}
