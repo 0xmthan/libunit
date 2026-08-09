@@ -19,6 +19,7 @@ int	main(void)
 	ret = 0;
 	ret |= stdout_launcher();
 	ret |= log_launcher();
+	ret |= color_launcher();
 	ret |= signals_launcher();
 	ret |= timeout_launcher();
 	if (ret != 0)

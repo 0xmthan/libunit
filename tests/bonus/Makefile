@@ -17,7 +17,8 @@ SRCS		= main_bonus.c \
 			  02_signals_test_bonus.c \
 			  03_timeout_test_bonus.c \
 			  04_stdout_test_bonus.c \
-			  05_log_test_bonus.c
+			  05_log_test_bonus.c \
+			  06_color_test_bonus.c
 
 OBJS		= $(SRCS:.c=.o)
 LOG			= *.log

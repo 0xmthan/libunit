@@ -54,3 +54,16 @@ int	log_launcher(void)
 	load_test(&testlist, "STATUS", &log_status_test);
 	return (launch_tests(&testlist, "bonus_log"));
 }
+
+int	color_launcher(void)
+{
+	t_unit_test	*testlist;
+
+	testlist = NULL;
+	load_test(&testlist, "GREEN OK", &color_ok_test);
+	load_test(&testlist, "RED KO", &color_ko_test);
+	load_test(&testlist, "RED SIGNAL", &color_signal_test);
+	load_test(&testlist, "YELLOW TIMEOUT", &color_timeout_test);
+	load_test(&testlist, "PLAIN LOG", &color_plain_log_test);
+	return (launch_tests(&testlist, "bonus_color"));
+}

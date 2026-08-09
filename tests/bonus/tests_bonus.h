@@ -26,6 +26,7 @@ int	signals_launcher(void);
 int	timeout_launcher(void);
 int	stdout_launcher(void);
 int	log_launcher(void);
+int	color_launcher(void);
 
 int	file_has(char *path, char *needle);
 int	ft_streq(char *a, char *b);
@@ -45,5 +46,11 @@ int	log_write_test(void);
 int	log_header_test(void);
 int	log_content_test(void);
 int	log_status_test(void);
+
+int	color_ok_test(void);
+int	color_ko_test(void);
+int	color_signal_test(void);
+int	color_timeout_test(void);
+int	color_plain_log_test(void);
 
 #endif
