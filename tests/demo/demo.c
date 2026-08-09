@@ -6,19 +6,22 @@
 /*   By: mtaheri@student.42istanbul.com.tr          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 14:23:43 by kaaltint          #+#    #+#             */
-/*   Updated: 2026/08/08 16:17:22 by mtaheri          ###   ########.fr       */
+/*   Updated: 2026/08/09 15:15:10 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "demo_test.h"
+#include <fcntl.h>
+#include <sys/mman.h>
+#include <unistd.h>
 
 int	demo(int value)
 {
 	int		*ptr;
-	char	*str;
+	char	*map;
+	int		fd;
 
 	ptr = NULL;
-	str = "bus";
 	if (value == 1)
 		return (1);
 	else if (value == 2)
@@ -30,7 +33,10 @@ int	demo(int value)
 	}
 	else if (value == 4)
 	{
-		*str = 'x';
+		fd = open("/tmp/.libunit_bus", O_RDWR | O_CREAT | O_TRUNC, 0600);
+		map = mmap(NULL, 4096, PROT_WRITE, MAP_SHARED, fd, 0);
+		unlink("/tmp/.libunit_bus");
+		*map = 'x';
 		return (0);
 	}
 	return (value);
