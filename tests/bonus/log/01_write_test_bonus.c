@@ -1,28 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_bonus.c                                       :+:      :+:    :+:   */
+/*   01_write_test_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtaheri@student.42istanbul.com.tr          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/09 22:12:05 by mtaheri           #+#    #+#             */
-/*   Updated: 2026/08/09 23:05:07 by mtaheri          ###   ########.fr       */
+/*   Updated: 2026/08/09 23:03:59 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tests_bonus.h"
+#include "../tests_bonus.h"
 
-int	main(void)
+int	log_write_test(void)
 {
-	int	ret;
-
-	ret = 0;
-	ret |= stdout_launcher();
-	ret |= log_launcher();
-	ret |= color_launcher();
-	ret |= signals_launcher();
-	ret |= timeout_launcher();
-	if (ret != 0)
-		return (-1);
+	write(1, "LOG MARKER\n", 11);
 	return (0);
 }

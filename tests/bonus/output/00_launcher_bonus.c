@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_bonus.c                                       :+:      :+:    :+:   */
+/*   00_launcher_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtaheri@student.42istanbul.com.tr          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/09 22:12:05 by mtaheri           #+#    #+#             */
-/*   Updated: 2026/08/09 23:05:07 by mtaheri          ###   ########.fr       */
+/*   Updated: 2026/08/09 23:04:02 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tests_bonus.h"
+#include "../tests_bonus.h"
 
-int	main(void)
+int	stdout_launcher(void)
 {
-	int	ret;
+	t_unit_test	*testlist;
 
-	ret = 0;
-	ret |= stdout_launcher();
-	ret |= log_launcher();
-	ret |= color_launcher();
-	ret |= signals_launcher();
-	ret |= timeout_launcher();
-	if (ret != 0)
-		return (-1);
-	return (0);
+	testlist = NULL;
+	load_test(&testlist, "WRITE", &stdout_write_test);
+	load_test(&testlist, "CAPTURED", &stdout_capture_test);
+	return (launch_tests(&testlist, "bonus_stdout"));
 }

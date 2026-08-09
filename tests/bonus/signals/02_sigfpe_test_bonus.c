@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_bonus.c                                       :+:      :+:    :+:   */
+/*   02_sigfpe_test_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtaheri@student.42istanbul.com.tr          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/09 22:12:05 by mtaheri           #+#    #+#             */
-/*   Updated: 2026/08/09 23:05:07 by mtaheri          ###   ########.fr       */
+/*   Updated: 2026/08/09 23:04:06 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tests_bonus.h"
+#include "../tests_bonus.h"
 
-int	main(void)
+int	sigfpe_test(void)
 {
-	int	ret;
+	volatile int	a;
+	volatile int	b;
 
-	ret = 0;
-	ret |= stdout_launcher();
-	ret |= log_launcher();
-	ret |= color_launcher();
-	ret |= signals_launcher();
-	ret |= timeout_launcher();
-	if (ret != 0)
-		return (-1);
-	return (0);
+	a = 1;
+	b = 0;
+	return (a / b);
 }

@@ -34,7 +34,7 @@ static int	run_test(t_unit_test *test, char *fname)
 		return (0);
 	if (pid == 0)
 		run_child(test);
-	waitpid(pid, &status, 0);
+	wait(&status);
 	ft_printf("%s: %s : [%s]\n", fname, test->name, status_str(status));
 	if (WIFEXITED(status) && WEXITSTATUS(status) == 0)
 		return (1);

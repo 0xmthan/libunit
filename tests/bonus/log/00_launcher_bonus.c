@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   04_stdout_test_bonus.c                             :+:      :+:    :+:   */
+/*   00_launcher_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtaheri@student.42istanbul.com.tr          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/09 22:12:05 by mtaheri           #+#    #+#             */
-/*   Updated: 2026/08/09 22:36:45 by mtaheri          ###   ########.fr       */
+/*   Updated: 2026/08/09 23:03:58 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tests_bonus.h"
+#include "../tests_bonus.h"
 
-int	stdout_write_test(void)
+int	log_launcher(void)
 {
-	write(1, "STDOUT MARKER\n", 14);
-	write(2, "STDERR MARKER\n", 14);
-	return (0);
-}
+	t_unit_test	*testlist;
 
-int	stdout_capture_test(void)
-{
-	if (!file_has("bonus_stdout.log", "STDOUT MARKER"))
-		return (-1);
-	if (!file_has("bonus_stdout.log", "STDERR MARKER"))
-		return (-1);
-	return (0);
+	testlist = NULL;
+	load_test(&testlist, "WRITE", &log_write_test);
+	load_test(&testlist, "HEADER", &log_header_test);
+	load_test(&testlist, "CONTENT", &log_content_test);
+	load_test(&testlist, "STATUS", &log_status_test);
+	return (launch_tests(&testlist, "bonus_log"));
 }
