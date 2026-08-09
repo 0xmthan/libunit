@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   04_sigill_test.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaaltint@student.42istanbul.com.tr         +#+  +:+       +#+        */
+/*   By: mtaheri@student.42istanbul.com.tr          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/09 17:52:34 by kaaltint          #+#    #+#             */
-/*   Updated: 2026/08/09 17:57:26 by kaaltint         ###   ########.fr       */
+/*   Updated: 2026/08/09 21:30:47 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 int	sigill_test(void)
 {
-	raise(SIGILL);
+	__builtin_trap();
 	return (0);
 }

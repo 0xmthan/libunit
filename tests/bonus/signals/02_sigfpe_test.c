@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   02_sigfpe_test.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaaltint@student.42istanbul.com.tr         +#+  +:+       +#+        */
+/*   By: mtaheri@student.42istanbul.com.tr          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/09 17:52:18 by kaaltint          #+#    #+#             */
-/*   Updated: 2026/08/09 17:52:22 by kaaltint         ###   ########.fr       */
+/*   Updated: 2026/08/09 21:30:45 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 
 int	sigfpe_test(void)
 {
-	raise(SIGFPE);
-	return (0);
+	volatile int	a;
+	volatile int	b;
+
+	a = 1;
+	b = 0;
+	return (a / b);
 }

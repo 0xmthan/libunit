@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   01_sigabrt_test.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaaltint@student.42istanbul.com.tr         +#+  +:+       +#+        */
+/*   By: mtaheri@student.42istanbul.com.tr          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/09 17:52:08 by kaaltint          #+#    #+#             */
-/*   Updated: 2026/08/09 17:52:09 by kaaltint         ###   ########.fr       */
+/*   Updated: 2026/08/09 21:30:43 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 int	sigabrt_test(void)
 {
-	raise(SIGABRT);
+	abort();
 	return (0);
 }
