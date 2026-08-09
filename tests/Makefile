@@ -31,7 +31,7 @@ SRCS		= main.c \
 			  bonus/timeout/01_timeout_test.c
 
 OBJS		= $(SRCS:.c=.o)
-LOG			= libunit.log
+LOG			= *.log
 
 all: $(NAME)
 

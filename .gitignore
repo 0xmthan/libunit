@@ -3,6 +3,6 @@ libunit.a
 test_demo
 test_real
 *.o
-libunit.log
+*.log
 libunit_tests
 test_libunit

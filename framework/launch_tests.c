@@ -6,7 +6,7 @@
 /*   By: mtaheri@student.42istanbul.com.tr          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 16:02:44 by mtaheri           #+#    #+#             */
-/*   Updated: 2026/08/09 20:46:36 by mtaheri          ###   ########.fr       */
+/*   Updated: 2026/08/09 21:34:37 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <sys/wait.h>
-#include <fcntl.h>
 
 static void	run_child(t_unit_test *test, int *fds)
 {
@@ -86,7 +85,7 @@ int	launch_tests(t_unit_test **testlist, char *fname)
 	int			total;
 	int			passed;
 
-	log = open("libunit.log", O_WRONLY | O_CREAT | O_APPEND, 0644);
+	log = log_open(fname);
 	cur = *testlist;
 	total = 0;
 	passed = 0;

@@ -6,7 +6,7 @@
 /*   By: mtaheri@student.42istanbul.com.tr          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 12:13:40 by mtaheri           #+#    #+#             */
-/*   Updated: 2026/08/09 20:46:38 by mtaheri          ###   ########.fr       */
+/*   Updated: 2026/08/09 21:34:36 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int		launch_tests(t_unit_test **testlist, char *fname);
 char	*status_str(int status);
 char	*status_color(int status);
 
+int		log_open(char *fname);
 void	log_header(int log, char *fname, char *name);
 void	log_status(int log, char *status);
 void	log_output(int log, char *fname, char *name, int fd);
