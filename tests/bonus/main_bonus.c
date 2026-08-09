@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   01_stdout_test.c                                   :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaaltint@student.42istanbul.com.tr         +#+  +:+       +#+        */
+/*   By: mtaheri@student.42istanbul.com.tr          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/09 18:10:00 by kaaltint          #+#    #+#             */
-/*   Updated: 2026/08/09 18:10:02 by kaaltint         ###   ########.fr       */
+/*   Created: 2026/08/09 22:12:05 by mtaheri           #+#    #+#             */
+/*   Updated: 2026/08/09 22:36:47 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stdout_test.h"
+#include "tests_bonus.h"
 
-int	stdout_test(void)
+int	main(void)
 {
-	write(1, "HELLO FROM TEST\n", 16);
+	int	ret;
+
+	ret = 0;
+	ret |= stdout_launcher();
+	ret |= log_launcher();
+	ret |= signals_launcher();
+	ret |= timeout_launcher();
+	if (ret != 0)
+		return (-1);
 	return (0);
 }

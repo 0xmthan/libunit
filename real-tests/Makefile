@@ -33,7 +33,7 @@ SRCS        = main.c \
               get_next_line/gnl/get_next_line_utils.c
 
 OBJS        = $(SRCS:.c=.o)
-LOG         = libunit.log
+LOG         = *.log
 
 all: $(NAME)
 
@@ -51,10 +51,10 @@ test: all
 	@./$(NAME) || true
 
 clean:
-	@$(RM) $(OBJS) $(LOG)
+	@$(RM) $(OBJS)
 
 fclean: clean
-	@$(RM) $(NAME)
+	@$(RM) $(NAME) $(LOG)
 
 re: fclean all
 

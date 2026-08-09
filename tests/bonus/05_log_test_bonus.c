@@ -1,19 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   04_sigill_test.c                                   :+:      :+:    :+:   */
+/*   05_log_test_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtaheri@student.42istanbul.com.tr          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/09 17:52:34 by kaaltint          #+#    #+#             */
-/*   Updated: 2026/08/09 21:30:47 by mtaheri          ###   ########.fr       */
+/*   Created: 2026/08/09 22:12:05 by mtaheri           #+#    #+#             */
+/*   Updated: 2026/08/09 22:36:46 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "signals_test.h"
+#include "tests_bonus.h"
 
-int	sigill_test(void)
+int	log_write_test(void)
 {
-	__builtin_trap();
+	write(1, "LOG MARKER\n", 11);
 	return (0);
+}
+
+int	log_header_test(void)
+{
+	if (file_has("bonus_log.log", "===== bonus_log: WRITE ====="))
+		return (0);
+	return (-1);
+}
+
+int	log_content_test(void)
+{
+	if (file_has("bonus_log.log", "LOG MARKER"))
+		return (0);
+	return (-1);
+}
+
+int	log_status_test(void)
+{
+	if (file_has("bonus_log.log", "--> [OK]"))
+		return (0);
+	return (-1);
 }

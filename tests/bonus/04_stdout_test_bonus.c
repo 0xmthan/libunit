@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   01_sigabrt_test.c                                  :+:      :+:    :+:   */
+/*   04_stdout_test_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtaheri@student.42istanbul.com.tr          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/09 17:52:08 by kaaltint          #+#    #+#             */
-/*   Updated: 2026/08/09 21:30:43 by mtaheri          ###   ########.fr       */
+/*   Created: 2026/08/09 22:12:05 by mtaheri           #+#    #+#             */
+/*   Updated: 2026/08/09 22:36:45 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "signals_test.h"
+#include "tests_bonus.h"
 
-int	sigabrt_test(void)
+int	stdout_write_test(void)
 {
-	abort();
+	write(1, "STDOUT MARKER\n", 14);
+	write(2, "STDERR MARKER\n", 14);
+	return (0);
+}
+
+int	stdout_capture_test(void)
+{
+	if (!file_has("bonus_stdout.log", "STDOUT MARKER"))
+		return (-1);
+	if (!file_has("bonus_stdout.log", "STDERR MARKER"))
+		return (-1);
 	return (0);
 }
