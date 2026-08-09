@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   00_launcher.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaaltint@student.42istanbul.com.tr         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/09 18:10:54 by kaaltint          #+#    #+#             */
-/*   Updated: 2026/08/09 18:10:58 by kaaltint         ###   ########.fr       */
+/*   Created: 2026/08/09 18:10:38 by kaaltint          #+#    #+#             */
+/*   Updated: 2026/08/09 18:10:39 by kaaltint         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	signals_launcher(void);
-int	timeout_launcher(void);
-int	stdout_launcher(void);
-int	log_launcher(void);
+#include "log_test.h"
 
-int	main(void)
+int	log_launcher(void)
 {
-	int	ret;
+	t_unit_test	*testlist;
 
-	ret = 0;
-	ret |= signals_launcher();
-	ret |= timeout_launcher();
-	ret |= stdout_launcher();
-	ret |= log_launcher();
-	if (ret != 0)
-		return (-1);
-	return (0);
+	testlist = NULL;
+	load_test(&testlist, "LOG TEST", &log_test);
+	return (launch_tests(&testlist, "BONUS LOG"));
 }

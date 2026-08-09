@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   launch_tests.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtaheri@student.42istanbul.com.tr          +#+  +:+       +#+        */
+/*   By: kaaltint@student.42istanbul.com.tr         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 16:02:44 by mtaheri           #+#    #+#             */
-/*   Updated: 2026/08/09 17:46:10 by mtaheri          ###   ########.fr       */
+/*   Updated: 2026/08/09 17:49:28 by kaaltint         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static char	*status_str(int status)
 static char	*status_color(int status)
 {
 	if (WIFEXITED(status) && WEXITSTATUS(status) == 0)
-		return ("");
+		return (C_GREEN);
 	return (C_RED);
 }
 

@@ -1,30 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   01_stdout_test.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaaltint@student.42istanbul.com.tr         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/09 18:10:54 by kaaltint          #+#    #+#             */
-/*   Updated: 2026/08/09 18:10:58 by kaaltint         ###   ########.fr       */
+/*   Created: 2026/08/09 18:10:00 by kaaltint          #+#    #+#             */
+/*   Updated: 2026/08/09 18:10:02 by kaaltint         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	signals_launcher(void);
-int	timeout_launcher(void);
-int	stdout_launcher(void);
-int	log_launcher(void);
+#include "stdout_test.h"
 
-int	main(void)
+int	stdout_test(void)
 {
-	int	ret;
-
-	ret = 0;
-	ret |= signals_launcher();
-	ret |= timeout_launcher();
-	ret |= stdout_launcher();
-	ret |= log_launcher();
-	if (ret != 0)
-		return (-1);
+	write(1, "HELLO FROM TEST\n", 16);
 	return (0);
 }

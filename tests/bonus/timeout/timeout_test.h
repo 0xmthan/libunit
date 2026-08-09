@@ -1,30 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   timeout_test.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaaltint@student.42istanbul.com.tr         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/09 18:10:54 by kaaltint          #+#    #+#             */
-/*   Updated: 2026/08/09 18:10:58 by kaaltint         ###   ########.fr       */
+/*   Created: 2026/08/09 18:09:19 by kaaltint          #+#    #+#             */
+/*   Updated: 2026/08/09 18:09:20 by kaaltint         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	signals_launcher(void);
+#ifndef TIMEOUT_TEST_H
+# define TIMEOUT_TEST_H
+
+# include "../../../framework/libunit_bonus.h"
+
 int	timeout_launcher(void);
-int	stdout_launcher(void);
-int	log_launcher(void);
+int	timeout_test(void);
 
-int	main(void)
-{
-	int	ret;
-
-	ret = 0;
-	ret |= signals_launcher();
-	ret |= timeout_launcher();
-	ret |= stdout_launcher();
-	ret |= log_launcher();
-	if (ret != 0)
-		return (-1);
-	return (0);
-}
+#endif

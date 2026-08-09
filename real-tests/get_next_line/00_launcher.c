@@ -6,7 +6,7 @@
 /*   By: kaaltint@student.42istanbul.com.tr         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 18:46:09 by kaaltint          #+#    #+#             */
-/*   Updated: 2026/08/08 21:43:41 by kaaltint         ###   ########.fr       */
+/*   Updated: 2026/08/09 17:39:47 by kaaltint         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,5 @@ int	gnl_launcher(void)
 	load_test(&testlist, "WHITESPACE", &whitespace_test);
 	load_test(&testlist, "MIXED LINES", &mixed_lines_test);
 	load_test(&testlist, "MANY LINES", &many_lines_test);
-	return (launch_tests(&testlist, "gnl"));
+	return (launch_tests(&testlist, "GNL"));
 }
