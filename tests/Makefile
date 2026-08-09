@@ -11,8 +11,12 @@ LIBUNIT		= $(ROOT_DIR)/libunit.a
 
 INCLUDES	= -I$(ROOT_DIR)/framework
 
-SRCS		= main.c $(wildcard */*.c)
+SRCS		= main.c \
+			  $(wildcard */*.c) \
+			  $(wildcard */*/*.c)
+
 OBJS		= $(SRCS:.c=.o)
+LOG			= libunit.log
 
 all: $(NAME)
 
@@ -26,6 +30,7 @@ $(LIBUNIT):
 	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 test: all
+	@$(RM) $(LOG)
 	@./$(NAME) || true
 
 clean:

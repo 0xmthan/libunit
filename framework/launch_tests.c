@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   launch_tests.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaaltint@student.42istanbul.com.tr         +#+  +:+       +#+        */
+/*   By: mtaheri@student.42istanbul.com.tr          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 16:02:44 by mtaheri           #+#    #+#             */
-/*   Updated: 2026/08/09 17:49:28 by kaaltint         ###   ########.fr       */
+/*   Updated: 2026/08/09 20:46:36 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,62 +14,41 @@
 #include "ft_printf.h"
 #include <stdlib.h>
 #include <unistd.h>
-#include <signal.h>
 #include <sys/wait.h>
+#include <fcntl.h>
 
-static char	*status_str(int status)
+static void	run_child(t_unit_test *test, int *fds)
 {
-	int	sig;
-
-	if (WIFEXITED(status))
-	{
-		if (WEXITSTATUS(status) == 0)
-			return ("OK");
-		return ("KO");
-	}
-	if (!WIFSIGNALED(status))
-		return ("KO");
-	sig = WTERMSIG(status);
-	if (sig == SIGSEGV)
-		return ("SIGSEGV");
-	if (sig == SIGBUS)
-		return ("SIGBUS");
-	if (sig == SIGABRT)
-		return ("SIGABRT");
-	if (sig == SIGFPE)
-		return ("SIGFPE");
-	if (sig == SIGPIPE)
-		return ("SIGPIPE");
-	if (sig == SIGILL)
-		return ("SIGILL");
-	return ("KO");
+	close(fds[0]);
+	dup2(fds[1], 1);
+	dup2(fds[1], 2);
+	close(fds[1]);
+	alarm(5);
+	if (test->f() == 0)
+		exit(0);
+	exit(1);
 }
 
-static char	*status_color(int status)
-{
-	if (WIFEXITED(status) && WEXITSTATUS(status) == 0)
-		return (C_GREEN);
-	return (C_RED);
-}
-
-static int	run_test(t_unit_test *test, char *fname)
+static int	run_test(t_unit_test *test, char *fname, int log)
 {
 	pid_t	pid;
+	int		fds[2];
 	int		status;
 
 	status = 0;
+	if (pipe(fds) < 0)
+		return (0);
 	pid = fork();
 	if (pid < 0)
-		return (0);
+		return (close(fds[0]), close(fds[1]), 0);
 	if (pid == 0)
-	{
-		if (test->f() == 0)
-			exit(0);
-		exit(1);
-	}
-	wait(&status);
+		run_child(test, fds);
+	close(fds[1]);
+	log_output(log, fname, test->name, fds[0]);
+	waitpid(pid, &status, 0);
 	ft_printf("%s: %s : [%s%s%s]\n", fname, test->name,
 		status_color(status), status_str(status), C_RESET);
+	log_status(log, status_str(status));
 	if (WIFEXITED(status) && WEXITSTATUS(status) == 0)
 		return (1);
 	return (0);
@@ -90,27 +69,36 @@ static void	free_list(t_unit_test **testlist)
 	*testlist = NULL;
 }
 
+static void	print_summary(int passed, int total)
+{
+	char	*color;
+
+	color = C_RED;
+	if (passed == total)
+		color = C_GREEN;
+	ft_printf("\n%s%d/%d tests checked%s\n", color, passed, total, C_RESET);
+}
+
 int	launch_tests(t_unit_test **testlist, char *fname)
 {
 	t_unit_test	*cur;
-	char		*color;
+	int			log;
 	int			total;
 	int			passed;
 
+	log = open("libunit.log", O_WRONLY | O_CREAT | O_APPEND, 0644);
 	cur = *testlist;
 	total = 0;
 	passed = 0;
 	while (cur)
 	{
-		passed += run_test(cur, fname);
+		passed += run_test(cur, fname, log);
 		total++;
 		cur = cur->next;
 	}
-	color = C_RED;
-	if (passed == total)
-		color = C_GREEN;
-	ft_printf("\n%s%d/%d tests checked%s\n", color, passed, total, C_RESET);
+	print_summary(passed, total);
 	free_list(testlist);
+	close(log);
 	if (passed == total)
 		return (0);
 	return (-1);

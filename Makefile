@@ -14,6 +14,8 @@ INCLUDES	= -Iframework
 
 SRCS		= framework/load_test.c \
 			  framework/launch_tests.c \
+			  framework/status.c \
+			  framework/log.c \
 			  framework/ft_printf.c \
 			  framework/ft_printf_put.c
 OBJS		= $(SRCS:.c=.o)

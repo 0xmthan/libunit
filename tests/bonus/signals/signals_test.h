@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   signals_test.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaaltint@student.42istanbul.com.tr         +#+  +:+       +#+        */
+/*   By: mtaheri@student.42istanbul.com.tr          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/09 17:50:22 by kaaltint          #+#    #+#             */
-/*   Updated: 2026/08/09 17:50:23 by kaaltint         ###   ########.fr       */
+/*   Updated: 2026/08/09 18:52:13 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SIGNALS_TEST_H
 # define SIGNALS_TEST_H
 
-# include "../../../framework/libunit_bonus.h"
+# include "../../../framework/libunit.h"
 # include <signal.h>
 # include <unistd.h>
 # include <stdlib.h>
