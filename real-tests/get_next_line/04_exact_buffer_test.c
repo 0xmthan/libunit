@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   04_one_char_test.c                                 :+:      :+:    :+:   */
+/*   04_exact_buffer_test.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtaheri@student.42istanbul.com.tr          +#+  +:+       +#+        */
+/*   By: kaaltint@student.42istanbul.com.tr         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/08 21:48:14 by kaaltint          #+#    #+#             */
-/*   Updated: 2026/08/09 17:31:48 by mtaheri          ###   ########.fr       */
+/*   Created: 2026/08/09 21:33:29 by kaaltint          #+#    #+#             */
+/*   Updated: 2026/08/09 21:33:31 by kaaltint         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "gnl_test.h"
 
-int	one_char_test(void)
+int	exact_buffer_test(void)
 {
 	int		fd;
 	char	*line;
 
-	fd = open("get_next_line/files/one_char.txt", O_RDONLY);
+	fd = open("get_next_line/files/exact_buffer.txt", O_RDONLY);
 	if (fd < 0)
 		return (-1);
 	line = get_next_line(fd);
-	if (line && ft_strcmp(line, "a\n") == 0)
+	if (line && ft_strcmp(line,
+			"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa") == 0)
 		return (free(line), close(fd), 0);
 	else
 		return (free(line), close(fd), -1);

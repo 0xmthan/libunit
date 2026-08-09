@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   15_many_lines_test.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtaheri@student.42istanbul.com.tr          +#+  +:+       +#+        */
+/*   By: kaaltint@student.42istanbul.com.tr         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/08 21:51:15 by kaaltint          #+#    #+#             */
-/*   Updated: 2026/08/09 17:31:48 by mtaheri          ###   ########.fr       */
+/*   Created: 2026/08/09 21:37:03 by kaaltint          #+#    #+#             */
+/*   Updated: 2026/08/09 21:37:05 by kaaltint         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@ int	many_lines_test(void)
 	while (i++ < 9)
 	{
 		line = get_next_line(fd);
+		if (!line || line[0] != '0' + i || line[1] != '\n'
+			|| line[2] != '\0')
+			return (free(line), close(fd), -1);
 		free(line);
 	}
 	line = get_next_line(fd);
