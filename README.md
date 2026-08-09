@@ -72,9 +72,3 @@ is what they are testing — so `make test_bonus` ends on a red count by design.
   `kill`, which the subject forbids.
 - `open` / `write` / `close` — the log file, written with raw `write` so each
   test is on disk before the next one starts.
-
-
-## Resources
-- [fork() in C - geeksforgeeks](https://www.geeksforgeeks.org/c/fork-system-call/)
-- man fork, man alarm, man 2 wait
-
