@@ -6,7 +6,7 @@
 /*   By: mtaheri@student.42istanbul.com.tr          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 13:56:22 by kaaltint          #+#    #+#             */
-/*   Updated: 2026/08/08 16:33:34 by mtaheri          ###   ########.fr       */
+/*   Updated: 2026/08/09 15:27:14 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,5 @@ int	demo_launcher(void)
 	load_test(&testlist, "KO test", &ko_test);
 	load_test(&testlist, "SEGV test", &segv_test);
 	load_test(&testlist, "BUS test", &bus_test);
-	return (launch_tests(&testlist, "demo"));
+	return (launch_tests(&testlist, "DEMO"));
 }

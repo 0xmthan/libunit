@@ -6,7 +6,7 @@
 /*   By: mtaheri@student.42istanbul.com.tr          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 16:02:44 by mtaheri           #+#    #+#             */
-/*   Updated: 2026/08/08 18:51:27 by mtaheri          ###   ########.fr       */
+/*   Updated: 2026/08/09 15:27:42 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,11 +64,6 @@ static int	run_test(t_unit_test *test)
 	return (status);
 }
 
-static void	print_line(char *fname, char *tname, int status)
-{
-	ft_printf("%s:%s:%s\n", fname, tname, status_str(status));
-}
-
 static void	free_list(t_unit_test **testlist)
 {
 	t_unit_test	*cur;
@@ -97,13 +92,13 @@ int	launch_tests(t_unit_test **testlist, char *fname)
 	while (cur)
 	{
 		status = run_test(cur);
-		print_line(fname, cur->name, status);
+		ft_printf("%s: %s : [%s]\n", fname, cur->name, status_str(status));
 		if (WIFEXITED(status) && WEXITSTATUS(status) == 0)
 			passed++;
 		total++;
 		cur = cur->next;
 	}
-	ft_printf("%d/%d tests checked\n", passed, total);
+	ft_printf("\n%d/%d tests checked\n", passed, total);
 	free_list(testlist);
 	if (passed == total)
 		return (0);
