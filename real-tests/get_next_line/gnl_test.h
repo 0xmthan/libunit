@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   gnl_test.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaaltint@student.42istanbul.com.tr         +#+  +:+       +#+        */
+/*   By: mtaheri@student.42istanbul.com.tr          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 18:46:23 by kaaltint          #+#    #+#             */
-/*   Updated: 2026/08/08 21:59:05 by kaaltint         ###   ########.fr       */
+/*   Updated: 2026/08/09 17:30:59 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <string.h>
 # include <unistd.h>
 
+int	ft_strcmp(const char *s1, const char *s2);
 int	basic_test(void);
 int	gnl_launcher(void);
 int	empty_test(void);

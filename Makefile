@@ -29,6 +29,7 @@ $(NAME): $(OBJS)
 test: $(NAME)
 	@$(MAKE) -C $(TESTS_DIR) test
 	@$(MAKE) -C $(REAL_DIR) test
+	@$(MAKE) clean
 
 clean:
 	@$(RM) $(OBJS)

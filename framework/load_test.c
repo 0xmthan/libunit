@@ -6,7 +6,7 @@
 /*   By: mtaheri@student.42istanbul.com.tr          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 15:41:07 by mtaheri           #+#    #+#             */
-/*   Updated: 2026/08/08 18:51:23 by mtaheri          ###   ########.fr       */
+/*   Updated: 2026/08/09 16:50:26 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,7 @@ int	load_test(t_unit_test **testlist, char *name, int (*f)(void))
 	node->f = f;
 	node->next = NULL;
 	if (!*testlist)
-	{
-		*testlist = node;
-		return (0);
-	}
+		return (*testlist = node, 0);
 	last = *testlist;
 	while (last->next)
 		last = last->next;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   13_whitespace_test.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaaltint@student.42istanbul.com.tr         +#+  +:+       +#+        */
+/*   By: mtaheri@student.42istanbul.com.tr          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 21:50:50 by kaaltint          #+#    #+#             */
-/*   Updated: 2026/08/08 21:50:51 by kaaltint         ###   ########.fr       */
+/*   Updated: 2026/08/09 17:31:48 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	whitespace_test(void)
 	if (fd < 0)
 		return (-1);
 	line = get_next_line(fd);
-	if (line && strcmp(line, "   \t  \n") == 0)
+	if (line && ft_strcmp(line, "   \t  \n") == 0)
 		return (free(line), close(fd), 0);
 	else
 		return (free(line), close(fd), -1);

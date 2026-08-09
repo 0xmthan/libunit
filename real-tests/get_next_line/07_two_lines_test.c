@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   07_two_lines_test.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaaltint@student.42istanbul.com.tr         +#+  +:+       +#+        */
+/*   By: mtaheri@student.42istanbul.com.tr          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 21:48:54 by kaaltint          #+#    #+#             */
-/*   Updated: 2026/08/08 21:48:55 by kaaltint         ###   ########.fr       */
+/*   Updated: 2026/08/09 17:31:48 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ int	two_lines_test(void)
 		return (-1);
 	l1 = get_next_line(fd);
 	l2 = get_next_line(fd);
-	if (l1 && l2 && strcmp(l1, "hello\n") == 0
-		&& strcmp(l2, "world\n") == 0)
+	if (l1 && l2 && ft_strcmp(l1, "hello\n") == 0
+		&& ft_strcmp(l2, "world\n") == 0)
 		return (free(l1), free(l2), close(fd), 0);
 	else
 		return (free(l1), free(l2), close(fd), -1);
